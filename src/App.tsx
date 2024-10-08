@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import html2canvas from "html2canvas";
-import logo from "./logo.png";
+import logo from "./components/logo.png";
 import "./styles.css";
 
 // Translation object for English and Hindi
