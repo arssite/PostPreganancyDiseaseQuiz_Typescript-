@@ -3,7 +3,7 @@ import html2canvas from "html2canvas";
 import "./styles.css";
 
 // Translation object for English and Hindi
-const translations = {
+const translations = { [key: string]: { [key: string]: string } } = {
   en: {
     title: "Post-Pregnancy Health Form",
     name: "Name:",
@@ -51,7 +51,8 @@ const translations = {
     emergency: "आपातकाल: आपको डॉक्टर से मिलना चाहिए",
   },
 };
-
+type Language = 'en' | 'hi';
+const language: Language = 'en'; // or 'hi'
 const App: React.FC = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -79,6 +80,12 @@ const App: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+if (!translations[language]) {
+  alert('Language not supported');
+  return;
+}
+
+alert(translations[language].alert);
 
     // Check if all required fields are filled
     if (
